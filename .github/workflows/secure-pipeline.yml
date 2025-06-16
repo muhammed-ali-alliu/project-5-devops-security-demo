@@ -21,3 +21,8 @@ jobs:
         run: |
           pip install checkov
           checkov -d terraform
+
+      - name: Build Docker image
+        run: |
+          docker build -t demo-app:latest .
+          trivy image demo-app:latest
